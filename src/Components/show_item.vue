@@ -48,4 +48,15 @@
         text-decoration: none;
         cursor: pointer;
     }
+    .card1 {
+        margin-bottom: 10px;
+    }
+    .card-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 16px;
+        color: inherit;
+        line-height: 2.5;
+    }
+
 </style>
