@@ -1,4 +1,4 @@
-# laravel_laravel_tagable
-laravel Tags system  .
+# laravel_FAQ
+laravel FAQ Manager  .
 
 # Requiments 

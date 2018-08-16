@@ -1,10 +1,10 @@
 <?php
-namespace ArtinCMS\LTS;
+namespace ArtinCMS\FAQ;
 use Illuminate\Support\Facades\Facade;
 
-class LTSFacade extends Facade
+class FAQFacade extends Facade
 {
 	protected static function getFacadeAccessor() {
-		return 'LTS';
+		return 'FAQ';
 	}
 }

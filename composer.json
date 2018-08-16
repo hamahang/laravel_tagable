@@ -1,5 +1,5 @@
 {
-    "name": "artincms/laravel_tagable",
+    "name": "artincms/laravel_faq",
     "description": "Official ArtinCMS.com Laravel Comment Systems Package",
     "keywords": ["laravel", "ArtinCMS", "Comment System", "storage", "artincms.com","آرتین سی ام اس"],
     "license": "MIT",
@@ -11,10 +11,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "ArtinCMS\\LTS\\": "src/"
+            "ArtinCMS\\FAQ\\": "src/"
         },
         "files": [
-            "src/Helpers/Functions/Tag.php"
+            "src/Helpers/Functions/FAQ.php"
         ]
 
     },
@@ -24,7 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ArtinCMS\\LTS\\LTSServiceProvider"
+                "ArtinCMS\\FAQ\\FAQServiceProvider"
             ]
         }
     }

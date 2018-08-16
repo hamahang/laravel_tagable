@@ -1,10 +1,10 @@
 <?php
 
-namespace ArtinCMS\LTS;
+namespace ArtinCMS\FAQ;
 
 use Illuminate\Support\ServiceProvider;
 
-class LTSServiceProvider extends ServiceProvider
+class FAQServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -15,15 +15,15 @@ class LTSServiceProvider extends ServiceProvider
     public function boot()
     {
     	// the main router
-        $this->loadRoutesFrom( __DIR__.'/Routes/backend_lts_route.php');
-        $this->loadRoutesFrom( __DIR__.'/Routes/frontend_lts_route.php');
+        $this->loadRoutesFrom( __DIR__.'/Routes/backend_faq_route.php');
+        $this->loadRoutesFrom( __DIR__.'/Routes/frontend_faq_route.php');
 	    // the main views folder
-	    $this->loadViewsFrom(__DIR__ . '/Views', 'laravel_tagable');
+	    $this->loadViewsFrom(__DIR__ . '/Views', 'laravel_faq');
 	    // the main migration folder for create sms_ir tables
 
 	    // for publish the views into main app
 	    $this->publishes([
-		    __DIR__ . '/Views' => resource_path('views/vendor/laravel_tagable'),
+		    __DIR__ . '/Views' => resource_path('views/vendor/laravel_faq'),
 	    ]);
 
 	    $this->publishes([
@@ -32,18 +32,15 @@ class LTSServiceProvider extends ServiceProvider
 
 	    // for publish the assets files into main app
 	    $this->publishes([
-		    __DIR__.'/assets' => public_path('vendor/laravel_tagable'),
+		    __DIR__.'/assets' => public_path('vendor/laravel_faq'),
 	    ], 'public');
 
 	    // for publish the sms_ir config file to the main app config folder
 	    $this->publishes([
-		    __DIR__ . '/Config/LTS.php' => config_path('laravel_tagable.php'),
+		    __DIR__ . '/Config/FAQ.php' => config_path('laravel_faq.php'),
 	    ]);
         $this->publishes([
-            __DIR__ . '/Traits/LaraveTagablesSystem.php' => app_path('Traits/LaravelCommentSystem.php'),
-        ]);
-        $this->publishes([
-            __DIR__ . '/Components' => resource_path('assets/js/components/laravel_tagable'),
+            __DIR__ . '/Components' => resource_path('assets/js/components/laravel_faq'),
         ]);
     }
 
@@ -56,12 +53,12 @@ class LTSServiceProvider extends ServiceProvider
     {
     	// set the main config file
 	    $this->mergeConfigFrom(
-		    __DIR__ . '/Config/LTS.php', 'laravel_tagable'
+		    __DIR__ . '/Config/FAQ.php', 'laravel_faq'
 	    );
 
-		// bind the LTS Facade
-	    $this->app->bind('LTS', function () {
-		    return new LTS;
+		// bind the FAQ Facade
+	    $this->app->bind('FAQ', function () {
+		    return new FAQ;
 	    });
     }
 }
