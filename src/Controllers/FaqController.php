@@ -119,7 +119,7 @@ class FaqController extends Controller
         $faq = Faq::find(FAQ_GetDecodeId($request->item_id));
         $faq->encode_id = FAQ_getEncodeId($faq->id);
         $tags = LTS_showTag($faq);
-        $Faq_form = view('laravel_faq::backend.view.edit', compact('faq', 'multiLang', 'tags'))->render();
+        $Faq_form = view('laravel_faq::backend.view.edit', compact('faq', 'multiLang'))->render();
         $res =
             [
                 'success'       => true,
@@ -278,14 +278,15 @@ class FaqController extends Controller
         }
         $result['message'][] = "با موفقیت انجام شد.";
         $result['success'] = true;
-
         return response()->json($result, 200)->withHeaders(['Content-Type' => 'json', 'charset' => 'utf-8']);
     }
 
     public function getFaqFront(Request $request)
     {
         $lang_id = $request->lang_id;
-        $faq = Faq::where('lang_id',$lang_id)->get();
+        $faq = Faq::where('lang_id',$lang_id)->
+            where('is_active','1')->
+            orderBy('order','asc')->get();
         $result['item']=$faq;
         return $result ;
     }

@@ -1,14 +1,18 @@
 <template>
-    <div class="container" :style="{direction: direction}">
+    <div class="container">
         <div class="row my-3">
             <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                 <div class="control-bar sandbox-control-bar mt10">
+                    <span class="btn btn-primary mr10 mb10 filter active" data-filter="all">All</span>
+                    <span class="btn btn-primary mr10 mb10 filter" data-filter=".category-1">HTML</span>
+                    <span class="btn btn-primary mr10 mb10 filter" data-filter=".category-2">PHP</span>
+                    <span class="btn btn-primary mr10 mb10 filter" data-filter=".category-3">JQUERY</span>
                 </div>
                 <div class="card card_collapse">
                     <div class="card-body">
                         <div class="panel-group panel-accordion faq-accordion">
                             <div id="faq">
-                                <show-item v-for=" item in items" :key="item.id" :item="item"></show-item>
+                                <show-item v-for=" (item, index) in items" :key="index" :item="item"></show-item>
                             </div>
                         </div>
                     </div>
@@ -26,7 +30,8 @@
         props:['direction','lang_id'],
         data: function () {
             return {
-                items :[]
+                items :[],
+                i:0
             }
         },
         mounted() {
