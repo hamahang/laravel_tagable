@@ -1,14 +1,12 @@
 <?php
 
-namespace ArtinCMS\FAQ\Models;
+namespace ArtinCMS\LTS\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\LaraveTagablesSystem;
 
-class Faq extends Model
+class Tag extends Model
 {
-    use LaraveTagablesSystem;
-    protected $table = 'faq_manager';
+    protected $table = 'lts_tags';
     public function user()
     {
         return $this->belongsTo(config('laravel_tagable.userModel'), 'created_by');
