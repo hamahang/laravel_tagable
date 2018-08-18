@@ -12,4 +12,9 @@ class Tag extends Model
         return $this->belongsTo(config('laravel_tagable.userModel'), 'created_by');
     }
 
+    public function faqs()
+    {
+        return $this->morphedByMany('ArtinCMS\FAQ\Models\Faq', 'taggable','lts_taggables');
+    }
+
 }
