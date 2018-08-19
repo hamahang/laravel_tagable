@@ -195,4 +195,3 @@ function updateDataTableSelectAllCtrl(table) {
         }
     }
 }
-
