@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaggableTables extends Migration
+class CreateTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateTaggableTables extends Migration
      */
     public function up()
     {
-        Schema::create('lts_tagables', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->integer('tag_id')->unsigned();
-            $table->integer('taggable_id')->unsigned();
-            $table->string('taggable_type', 255)->nullable()->default(null);
+        Schema::create('lts_tags', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title', 255)->nullable()->default(null);
+            $table->text('description')->nullable()->default(null);
+            $table->enum('is_active', array('0','1'))->default('0');
             $table->integer('created_by')->unsigned()->nullable()->default(null);
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateTaggableTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lts_tagables');
+        Schema::dropIfExists('lts_tags');
     }
 }
