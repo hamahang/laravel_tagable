@@ -27,7 +27,7 @@
             width: '20%',
             data: 'description',
             name: 'description',
-            title: 'عنوان'
+            title: 'توضیحات'
         },
 
         {

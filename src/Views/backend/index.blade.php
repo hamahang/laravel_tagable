@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="tabbable">
                     <ul class="nav nav-tabs nav-tabs-bottom" id="tag_tab" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" href="#manage_tab" data-toggle="tab"><i class="fas fa-th-list"></i><span class="margin_right_5">مدیریت گالری</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#manage_tab" data-toggle="tab"><i class="fas fa-th-list"></i><span class="margin_right_5">مدیریت تگ ها</span></a></li>
                         <li class="nav-item add_tag_tab">
                             <a class="nav-link" href="#add_tag" data-toggle="tab">
                                 <i class="far fa-plus-square"></i>
