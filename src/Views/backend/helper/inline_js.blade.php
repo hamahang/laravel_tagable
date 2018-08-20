@@ -112,6 +112,8 @@
             success: function (data) {
                 $('#frm_create_tag .total_loader').remove();
                 if (data.success) {
+                    var form_element = $("#frm_create_tag");
+                    form_element.find('select').val('').trigger('change');
                     clear_form_elements('#frm_create_tag');
                     menotify('success', data.title, data.message);
                     TagManagerGridData.ajax.reload(null, false);
@@ -312,4 +314,7 @@
         var getTagRoute = '{{ route('LTS.getTag') }}';
         dataTablesGrid('#TagManagerGridData', 'TagManagerGridData', getTagRoute, tag_grid_columns,false);
     }
+
+    /*___________________________________________________init select2_____________________________________________________________________*/
+    init_select2_data('#FaqSelectLang',{!! $multiLang !!});
 </script>

@@ -1,6 +1,20 @@
 <div class="space-20"></div>
 <form id="frm_edit_tag" class="form-horizontal" name="frm_edit_tag">
     <input type="hidden" name="item_id" value="{{$tag->encode_id}}">
+    @if($multiLang)
+    <div class="form-group row fg_lang">
+        <label class="col-sm-2 control-label col-form-label label_post" for="lang">
+            <span class="more_info"></span>
+            <span class="label_lang">انتخاب زبان</span>
+        </label>
+        <div class="col-sm-6">
+            <select class="form-control" name="lang_id" id="FaqSelectLangEdit">
+                <option value="{{$tag->lang_id}}" value="-1">{{$tag->lang_name}}</option>
+            </select>
+        </div>
+        <div class="col-sm-4 messages"></div>
+    </div>
+    @endif
     <div class="form-group row fg_title">
         <label class="col-sm-2 control-label col-form-label label_post" for="title">
             <span class="more_info"></span>
@@ -23,4 +37,6 @@
         <button type="button" class="float-right btn bg-secondary color_white cancel_edit_tag"><i class="fa fa-times margin_left_8"></i>انصراف</button>
     </div>
 </form>
-
+<script>
+    init_select2_data('#FaqSelectLangEdit',{!! $multiLang !!});
+</script>

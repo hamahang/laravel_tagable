@@ -14,7 +14,16 @@ class TagController extends Controller
 {
     public function manageTag()
     {
-        return view('laravel_tagable::backend.index');
+        $multiLangFunc = config('laravel_tagable.multiLang');
+        if ($multiLangFunc)
+        {
+            $multiLang = json_encode($multiLangFunc());
+        }
+        else
+        {
+            $multiLang = false;
+        }
+        return view('laravel_tagable::backend.index',compact('multiLang'));
     }
 
     public function getTag(Request $request)
@@ -43,6 +52,14 @@ class TagController extends Controller
                 $Tag->created_by = Auth::user()->id;
             }
         }
+        if ($request->lang_id)
+        {
+            $lang_id = $request->lang_id;
+            $multiLang = config('laravel_tagable.multiLang')();
+            $Tag->lang_id = $lang_id;
+            $lang_title = $this->searchForId($lang_id, $multiLang);
+            $Tag->lang_name = $lang_title;
+        }
         $Tag->save();
         $res =
             [
@@ -50,15 +67,23 @@ class TagController extends Controller
                 'title'   => "ثبت تگ جدید",
                 'message' => 'تگ با موفقیت ثبت شد.'
             ];
-
         return $res;
     }
 
     public function getEditTagForm(Request $request)
     {
+        $multiLangFunc = config('laravel_tagable.multiLang');
+        if ($multiLangFunc)
+        {
+            $multiLang = json_encode($multiLangFunc());
+        }
+        else
+        {
+            $multiLang = false;
+        }
         $tag = Tag::find(LFM_GetDecodeId($request->item_id));
         $tag->encode_id = LFM_getEncodeId($tag->id);
-        $Tag_form = view('laravel_tagable::backend.view.edit', compact('tag'))->render();
+        $Tag_form = view('laravel_tagable::backend.view.edit', compact('tag','multiLang'))->render();
         $res =
             [
                 'success'       => true,
@@ -82,6 +107,14 @@ class TagController extends Controller
             {
                 $Tag->created_by = Auth::user()->id;
             }
+        }
+        if ($request->lang_id)
+        {
+            $lang_id = $request->lang_id;
+            $multiLang = config('laravel_tagable.multiLang')();
+            $Tag->lang_id = $lang_id;
+            $lang_title = $this->searchForId($lang_id, $multiLang);
+            $Tag->lang_name = $lang_title;
         }
         $Tag->save();
         $res =
@@ -145,7 +178,19 @@ class TagController extends Controller
         }
         $data = $data->get();
         $data = ['results' => $data];
-
         return response()->json($data);
+    }
+
+    function searchForId($id, $array)
+    {
+        foreach ($array as $value)
+        {
+            if ($value['id'] == $id)
+            {
+                return $value['text'];
+            }
+        }
+
+        return null;
     }
 }

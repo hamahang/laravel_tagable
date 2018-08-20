@@ -17,7 +17,9 @@ class CreateTagTable extends Migration
             $table->increments('id');
             $table->string('title', 255)->nullable()->default(null);
             $table->text('description')->nullable()->default(null);
-            $table->enum('is_active', array('0','1'))->default('0');
+            $table->integer('lang_id')->unsigned()->nullable()->default(null);
+            $table->string('lang_name', 255)->nullable()->default(null);
+            $table->enum('is_active', array('0','1'))->default('1');
             $table->integer('created_by')->unsigned()->nullable()->default(null);
             $table->timestamps();
         });
