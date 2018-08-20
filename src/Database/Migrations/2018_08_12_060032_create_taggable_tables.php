@@ -18,6 +18,7 @@ class CreateTaggableTables extends Migration
             $table->integer('tag_id')->unsigned();
             $table->integer('taggable_id')->unsigned();
             $table->string('taggable_type', 255)->nullable()->default(null);
+            $table->string('type', 255)->nullable()->default(null);
             $table->integer('created_by')->unsigned()->nullable()->default(null);
             $table->timestamps();
         });
