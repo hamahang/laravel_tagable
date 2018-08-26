@@ -32,7 +32,7 @@ class TagController extends Controller
 
         return DataTables::eloquent($Tag)
             ->editColumn('id', function ($data) {
-                return LFM_getEncodeId($data->id);
+                return LTS_getEncodeId($data->id);
             })
             ->editColumn('description', function ($data) {
                 return strip_tags($data->description);
@@ -81,8 +81,8 @@ class TagController extends Controller
         {
             $multiLang = false;
         }
-        $tag = Tag::find(LFM_GetDecodeId($request->item_id));
-        $tag->encode_id = LFM_getEncodeId($tag->id);
+        $tag = Tag::find(LTS_GetDecodeId($request->item_id));
+        $tag->encode_id = LTS_getEncodeId($tag->id);
         $Tag_form = view('laravel_tagable::backend.view.edit', compact('tag','multiLang'))->render();
         $res =
             [
@@ -98,7 +98,7 @@ class TagController extends Controller
 
     public function editTag(Request $request)
     {
-        $Tag = Tag::find(LFM_GetDecodeId($request->item_id));
+        $Tag = Tag::find(LTS_GetDecodeId($request->item_id));
         $Tag->title = $request->title;
         $Tag->description = $request->description;
         if (Auth::user())
@@ -129,7 +129,7 @@ class TagController extends Controller
 
     public function trashTag(Request $request)
     {
-        $Tag = Tag::find(LFM_GetDecodeId($request->item_id));
+        $Tag = Tag::find(LTS_GetDecodeId($request->item_id));
         $Tag->delete();
 
         $res =
@@ -148,7 +148,7 @@ class TagController extends Controller
 
     public function setTagStatus(Request $request)
     {
-        $Tag = Tag::find(LFM_GetDecodeId($request->item_id));
+        $Tag = Tag::find(LTS_GetDecodeId($request->item_id));
         if ($request->is_active == "true")
         {
             $Tag->is_active = "1";

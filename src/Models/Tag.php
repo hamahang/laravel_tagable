@@ -17,4 +17,9 @@ class Tag extends Model
         return $this->morphedByMany('ArtinCMS\FAQ\Models\Faq', 'taggable','lts_taggables');
     }
 
+    public function portfolios()
+    {
+        return $this->morphedByMany('ArtinCMS\LPM\Model\Portfilio', 'taggable','lts_taggables');
+    }
+
 }

@@ -69,4 +69,64 @@ function faq_sampleLang()
     return $lang;
 }
 
+function LTS_getEncodeId($id)
+{
+    if ($id < 0)
+    {
+        return $id;
+    }
+    else
+    {
+        $hashids = new \Hashids\Hashids(md5('sadeghi'));
+
+        return $hashids->encode($id);
+    }
+
+}
+
+function LTS_GetDecodeId($id, $route = false)
+{
+    $my_routes = [
+        'LFM.DownloadFile',
+        'LFM.ShowCategories',
+        'LFM.ShowCategories.Create',
+        'LFM.ShowCategories.Edit',
+        'LFM.EditFile',
+        'LFM.FileUpload',
+        'LFM.FileUploadForm',
+        'LFM.EditPicture',
+        'LFM.Breadcrumbs',
+    ];
+    if ((int)$id < 0)
+    {
+        return (int)$id;
+    }
+    else
+    {
+        $hashids = new \Hashids\Hashids(md5('sadeghi'));
+        if ($route)
+        {
+            if (in_array($route->getName(), $my_routes))
+            {
+                if ($hashids->decode($id) != [])
+                {
+                    return $hashids->decode($id)[0];
+                }
+                else
+                {
+                    return $id;
+                }
+            }
+            else
+            {
+                return $id;
+            }
+        }
+        else
+        {
+            return $hashids->decode($id)[0];
+        }
+    }
+
+}
 ?>
