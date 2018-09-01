@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'h_lts';
+  src:  url('fonts/h_lts.eot?zc97e2');
+  src:  url('fonts/h_lts.eot?zc97e2#iefix') format('embedded-opentype'),
+    url('fonts/h_lts.ttf?zc97e2') format('truetype'),
+    url('fonts/h_lts.woff?zc97e2') format('woff'),
+    url('fonts/h_lts.svg?zc97e2#h_lts') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'h_lts' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-lts-thumbs-down:before {
+  content: "\f165";
+}
+.fa-lts-thumbs-up:before {
+  content: "\f164";
+}
+.fa-lts-thumbs-down1:before {
+  content: "\f166";
+}
+.fa-lts-thumbs-up1:before {
+  content: "\f167";
+}

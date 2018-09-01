@@ -40,7 +40,7 @@ class LTSServiceProvider extends ServiceProvider
 		    __DIR__ . '/Config/LTS.php' => config_path('laravel_tagable.php'),
 	    ]);
         $this->publishes([
-            __DIR__ . '/Traits/LaraveTagablesSystem.php' => app_path('Traits/LaravelCommentSystem.php'),
+            __DIR__ . '/Traits/LaraveTagablesSystem.php' => app_path('Traits/LaraveTagablesSystem.php'),
         ]);
         $this->publishes([
             __DIR__ . '/Components' => resource_path('assets/js/components/laravel_tagable'),
