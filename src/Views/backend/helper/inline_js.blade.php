@@ -205,9 +205,9 @@
     $(document).on("click", ".btn_trash_tag", function () {
         var item_id = $(this).data('item_id');
         var title = $(this).data('title');
-        desc = 'بله گالری( ' + title + ' ) را حذف کن !';
+        desc = 'بله تگ( ' + title + ' ) را حذف کن !';
         var parameters = {item_id: item_id};
-        yesNoAlert('حذف گالری', 'از حذف گالری مطمئن هستید ؟', 'warning', desc, 'لغو', trash_tag, parameters);
+        yesNoAlert('حذف تگ', 'از حذف تگ مطمئن هستید ؟', 'warning', desc, 'لغو', trash_tag, parameters);
     });
 
     function trash_tag(params) {
