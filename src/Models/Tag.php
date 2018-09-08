@@ -22,4 +22,9 @@ class Tag extends Model
         return $this->morphedByMany('ArtinCMS\LPM\Model\Portfilio', 'taggable','lts_taggables');
     }
 
+    public function categories()
+    {
+        return $this->morphedByMany('ArtinCMS\LPM\Model\Category', 'taggable','lts_taggables');
+    }
+
 }
