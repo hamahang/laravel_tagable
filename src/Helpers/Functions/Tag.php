@@ -34,7 +34,7 @@ if (!function_exists('LTS_showTag'))
     }
 }
 //------------sample language function------------------------------//
-function faq_sampleLang()
+function LTS_SampleLang()
 {
     $lang = [
         [

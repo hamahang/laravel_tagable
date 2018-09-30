@@ -1,7 +1,7 @@
 <div class="space-20"></div>
 <form id="frm_edit_tag" class="form-horizontal" name="frm_edit_tag">
     <input type="hidden" name="item_id" value="{{$tag->encode_id}}">
-    @if($multiLang)
+    @if($multi_lang)
     <div class="form-group row fg_lang">
         <label class="col-sm-2 control-label col-form-label label_post" for="lang">
             <span class="more_info"></span>
@@ -38,5 +38,5 @@
     </div>
 </form>
 <script>
-    init_select2_data('#FaqSelectLangEdit',{!! $multiLang !!});
+    init_select2_data('#FaqSelectLangEdit',{!! $multi_lang !!});
 </script>

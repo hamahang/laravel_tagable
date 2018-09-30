@@ -316,5 +316,5 @@
     }
 
     /*___________________________________________________init select2_____________________________________________________________________*/
-    init_select2_data('#FaqSelectLang',{!! $multiLang !!});
+    init_select2_data('#FaqSelectLang',{!! $multi_lang !!});
 </script>

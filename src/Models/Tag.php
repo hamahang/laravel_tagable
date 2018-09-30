@@ -9,7 +9,7 @@ class Tag extends Model
     protected $table = 'lts_tags';
     public function user()
     {
-        return $this->belongsTo(config('laravel_tagable.userModel'), 'created_by');
+        return $this->belongsTo(config('laravel_tagable.user_model'), 'created_by');
     }
 
     public function faqs()
