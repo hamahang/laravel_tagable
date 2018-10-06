@@ -10,6 +10,6 @@ return [
     'frontend_lts_route_prefix' => 'LTS',
     // ======================================================================
     //allow user to upload private file in filemanager
-    'userModel'=>'App\User',
+    'user_model'=>'App\User',
     'multiLang'=> env('LPM_MULTILANG', 'faq_sampleLang'),
 ];
