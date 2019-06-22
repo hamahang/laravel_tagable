@@ -14,17 +14,17 @@ class Tag extends Model
 
     public function faqs()
     {
-        return $this->morphedByMany('ArtinCMS\FAQ\Models\Faq', 'taggable','lts_taggables');
+        return $this->morphedByMany('ArtinCMS\FAQ\Models\Faq', 'tagable','lts_tagables');
     }
 
     public function portfolios()
     {
-        return $this->morphedByMany('ArtinCMS\LPM\Model\Portfilio', 'taggable','lts_taggables');
+        return $this->morphedByMany('ArtinCMS\LPM\Model\Portfilio', 'tagable','lts_tagables');
     }
 
     public function categories()
     {
-        return $this->morphedByMany('ArtinCMS\LPM\Model\Category', 'taggable','lts_taggables');
+        return $this->morphedByMany('ArtinCMS\LPM\Model\Category', 'tagable','lts_tagables');
     }
 
 }
