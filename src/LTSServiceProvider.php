@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtinCMS\LTS;
+namespace Hamahang\LTS;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,5 +1,5 @@
 <?php
-namespace ArtinCMS\LTS;
+namespace Hamahang\LTS;
 use Illuminate\Support\Facades\Facade;
 
 class LTSFacade extends Facade

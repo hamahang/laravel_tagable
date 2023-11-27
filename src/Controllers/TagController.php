@@ -1,8 +1,8 @@
 <?php
 
-namespace ArtinCMS\LTS\Controllers;
+namespace Hamahang\LTS\Controllers;
 
-use ArtinCMS\LTS\Models\Tag;
+use Hamahang\LTS\Models\Tag;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Validator;

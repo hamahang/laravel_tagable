@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtinCMS\LTS\Models;
+namespace Hamahang\LTS\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

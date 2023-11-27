@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtinCMS\LTS\Models;
+namespace Hamahang\LTS\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,17 +14,17 @@ class Tag extends Model
 
     public function faqs()
     {
-        return $this->morphedByMany('ArtinCMS\FAQ\Models\Faq', 'tagable','lts_tagables');
+        return $this->morphedByMany('Hamahang\FAQ\Models\Faq', 'tagable','lts_tagables');
     }
 
     public function portfolios()
     {
-        return $this->morphedByMany('ArtinCMS\LPM\Model\Portfilio', 'tagable','lts_tagables');
+        return $this->morphedByMany('Hamahang\LPM\Model\Portfilio', 'tagable','lts_tagables');
     }
 
     public function categories()
     {
-        return $this->morphedByMany('ArtinCMS\LPM\Model\Category', 'tagable','lts_tagables');
+        return $this->morphedByMany('Hamahang\LPM\Model\Category', 'tagable','lts_tagables');
     }
 
 }

@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix' => config('laravel_tagable.backend_lts_route_prefix'), 'namespace' => 'ArtinCMS\LTS\Controllers', 'middleware' => config('laravel_tagable.backend_lts_middlewares')], function () {
+Route::group(['prefix' => config('laravel_tagable.backend_lts_route_prefix'), 'namespace' => 'Hamahang\LTS\Controllers', 'middleware' => config('laravel_tagable.backend_lts_middlewares')], function () {
     Route::get('manageTag', ['as' => 'LTS.manageTag', 'uses' => 'TagController@manageTag']);
     Route::post('getTag', ['as' => 'LTS.getTag', 'uses' => 'TagController@getTag']);
     Route::post('saveTag', ['as' => 'LTS.saveTag', 'uses' => 'TagController@saveTag']);
